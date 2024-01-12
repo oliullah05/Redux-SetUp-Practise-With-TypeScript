@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { counterSlice } from './features/countSlice'
-import logger from 'redux-logger'
+import { customLogger } from './middlewars/logger'
 
 
 
@@ -8,7 +8,7 @@ export const store = configureStore({
   reducer:{
     counter:counterSlice.reducer
   },
-  middleware:(getDefacultMiddlewars)=>getDefacultMiddlewars().concat(logger)
+  middleware:(getDefacultMiddlewars)=>getDefacultMiddlewars().concat(customLogger)
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
